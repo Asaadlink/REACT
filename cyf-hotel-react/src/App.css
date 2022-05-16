@@ -9,7 +9,10 @@
 
 .App-header {
   background-color: #222;
-  height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   color: white;
   text-align: left;
@@ -18,15 +21,8 @@
   font-weight: bold;
 }
 
-.header {
-  display: flex;
-  width: 100%;
-  background-color: black;
-}
-
-.header-logo {
-  height: 50px;
-  padding-left: 15px;
+.App-header img {
+  height: 100px;
 }
 
 .App-title {
@@ -58,12 +54,19 @@ tr {
   padding-top: 15px;
 }
 
-footer {
+.footer {
   padding-top: 20px;
+  text-align: center;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(110, 108, 108);
+  color: rgb(37, 30, 30);
   text-align: center;
 }
 
-li {
+.footer ul {
   list-style: none;
 }
 
@@ -74,8 +77,4 @@ li {
 .card img {
   height: 200px;
   object-fit: cover;
-}
-
-.tourist-cards {
-  padding: 40px;
 }

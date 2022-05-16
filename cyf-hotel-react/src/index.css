@@ -24,3 +24,17 @@ body {
 .search-row input {
   margin-right: 10px;
 }
+
+.isSelected {
+  background-color: #007bff;
+  color: azure;
+}
+
+.notSelected {
+  background-color: white;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
