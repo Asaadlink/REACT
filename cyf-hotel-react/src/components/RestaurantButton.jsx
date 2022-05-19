@@ -1,7 +1,7 @@
 import React from "react";
-const RestaurantButton = prop => {
+function RestaurantButton ({ orderOne }) {
   return (
-    <button onClick={prop.handleClick} className="btn btn-primary">
+    <button onClick={orderOne} className="btn btn-primary">
       Add
     </button>
   );
