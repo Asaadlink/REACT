@@ -1,32 +1,34 @@
 import React, { useState } from "react";
 import moment from "moment";
+import SearchButton from "./SearchButton";
 
 const SearchResultsRow = props => {
-  const checkIn = moment(props.row.checkInDate);
-  const checkOut = moment(props.row.checkOutDate);
-  const nights = checkOut.diff(checkIn, "days");
-
-  const [selected, setSelected] = useState("notSelected");
-  const selectRow = () => {
-    if (selected === "notSelected") {
-      setSelected("isSelected");
-    } else {
-      setSelected("notSelected");
-    }
-  };
+  const [isSelected, setIsSelected] = useState(false);
+  function handleClick() {
+    setIsSelected(!isSelected);
+  }
+  const checkIn = moment(props.booking.checkInDate);
+  const checkOut = moment(props.booking.checkOutDate);
+  const nightsCalculation = checkOut.diff(checkIn, "days");
   return (
-    <tr className={selected} onClick={selectRow}>
-      <td scope="row">{props.row.id}</td>
-      <td>{props.row.title}</td>
-      <td>{props.row.firstName}</td>
-      <td>{props.row.surname}</td>
-      <td>{props.row.email}</td>
-      <td>{props.row.roomId}</td>
-      <td>{props.row.checkInDate}</td>
-      <td>{props.row.checkOutDate}</td>
-      <td>{nights}</td>
+    <tr className={isSelected ? "highlight" : ""} onClick={handleClick}>
+      <td>{props.booking.id}</td>
+      <td>{props.booking.title}</td>
+      <td>{props.booking.firstName}</td>
+      <td>{props.booking.surname}</td>
+      <td>{props.booking.email}</td>
+      <td>{props.booking.roomId}</td>
+      <td>{props.booking.checkInDate}</td>
+      <td>{props.booking.checkOutDate}</td>
+      <td>{nightsCalculation}</td>
+      <td>
+        {" "}
+        <SearchButton
+          onClick={() => props.changeCustomerId(props.booking.id)}
+          buttonText="Customer Profile"
+        />
+      </td>
     </tr>
   );
 };
-
 export default SearchResultsRow;
